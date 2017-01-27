@@ -1,24 +1,28 @@
 # Jbot
 
-**TODO: Add description**
+Jbot is a custom user bot for Jira management.
+Delegate issue creation, search and more to jbot
+and jbot won't let you down.
 
-## Installation
+### Deployment
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+- `mix deps.get`
+- `export JBOT_API_KEY=<slack_api_key_here>`
+- `mix run --no-halt`
 
-  1. Add `jbot` to your list of dependencies in `mix.exs`:
+### Jbot Commands
 
-    ```elixir
-    def deps do
-      [{:jbot, "~> 0.1.0"}]
-    end
-    ```
+All jbot commands must be formatted: `@jbot <message>`
+If no message is sent, jbot will reply with: `You called my lord?`
 
-  2. Ensure `jbot` is started before your application:
+Messages:
 
-    ```elixir
-    def application do
-      [applications: [:jbot]]
-    end
-    ```
+- `Hello` or `Hey` or `Hi` or `Good morning` or `Good evening` or `Good night` => `Hey, @you`
+
+### Special thanks to:
+
+- @rezolvetech and @elbuo8 for the inspiration (botsito)
+- @BlakeWilliams for the great ElixirSlack Client
+
+
 
