@@ -5,10 +5,18 @@ Delegate issue creation, search and more to jbot
 and jbot won't let you down.
 
 ### Deployment
+Remember to add a custom user bot to
+your slack team and name it jbot to
+get the slack api key.
 
 - `mix deps.get`
 - `export JBOT_API_KEY=<slack_api_key_here>`
 - `mix run --no-halt`
+
+### Make Commands
+
+- `make build` ## Gets all dependancies
+- `make run` ## Runs jbot app
 
 ### Jbot Commands
 
