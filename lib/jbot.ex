@@ -7,6 +7,7 @@ defmodule Jbot do
     children = [
       worker(Jbot.Dispatcher, [], []),
       worker(Jbot.Greeter, [], []),
+      worker(Jbot.Issuer, [], []),
       worker(Slack.Bot, [Jbot.Comm, [], Application.get_env(:jbot, :api_key)]),
     ]
 

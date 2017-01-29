@@ -20,14 +20,17 @@ defmodule Jbot.TypeChecker do
   containing the atom for the action
   and the message.
 
-  ### Example
+  ### Examples
       iex> Jbot.TypeChecker.type("Hello")
       {:greeter, "Hello"}
+
+      iex> Jbot.TypeChecker.type("who has issue TEST-14")
+      {:issuer, "who has issue TEST-14"}
   """
 
   @spec type(String.t()) :: {atom(), String.t()}
   def type(msg) do
-    {:unknown, msg} |> is_greeting()
+    {:unknown, msg} |> is_greeting() |> is_issuer()
   end
 
   #####
@@ -42,4 +45,13 @@ defmodule Jbot.TypeChecker do
     end
   end
   defp is_greeting({msg_type, msg}), do: {msg_type, msg}
+
+  defp is_issuer({:unknown, msg}) do
+    if String.contains?(String.downcase(msg), "issue") do
+      {:issuer, msg}
+    else
+      {:unknown, msg}
+    end
+  end
+  defp is_issuer({msg_type, msg}), do: {msg_type, msg}
 end

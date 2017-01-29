@@ -1,5 +1,5 @@
 build:
-	mix dpes.get
+	mix deps.get
 
 run:
 	mix run --no-halt
