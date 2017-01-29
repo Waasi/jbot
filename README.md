@@ -32,5 +32,10 @@ Messages:
 - @rezolvetech and @elbuo8 for the inspiration (botsito)
 - @BlakeWilliams for the great ElixirSlack Client
 
+## Contributing
 
-
+1. Fork it ( https://github.com/[my-github-username]/jbot/fork )
+2. Create your feature branch (`git checkout -b feature/my_new_feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a new Pull Request
