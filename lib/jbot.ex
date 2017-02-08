@@ -8,6 +8,7 @@ defmodule Jbot do
       worker(Jbot.Dispatcher, [], []),
       worker(Jbot.Greeter, [], []),
       worker(Jbot.Issuer, [], []),
+      worker(Jbot.General, [], []),
       worker(Slack.Bot, [Jbot.Comm, [], Application.get_env(:jbot, :api_key)]),
     ]
 

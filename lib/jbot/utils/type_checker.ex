@@ -30,27 +30,27 @@ defmodule Jbot.TypeChecker do
 
   @spec type(String.t()) :: {atom(), String.t()}
   def type(msg) do
-    {:unknown, msg} |> is_greeting() |> is_issuer()
+    {:general, msg} |> is_greeting() |> is_issuer()
   end
 
   #####
   # Private API
   #####
 
-  defp is_greeting({:unknown, msg}) do
+  defp is_greeting({:general, msg}) do
     if Enum.member?(@greetings, String.downcase(msg)) do
       {:greeter, msg}
     else
-      {:unknown, msg}
+      {:general, msg}
     end
   end
   defp is_greeting({msg_type, msg}), do: {msg_type, msg}
 
-  defp is_issuer({:unknown, msg}) do
+  defp is_issuer({:general, msg}) do
     if String.contains?(String.downcase(msg), "issue") do
       {:issuer, msg}
     else
-      {:unknown, msg}
+      {:general, msg}
     end
   end
   defp is_issuer({msg_type, msg}), do: {msg_type, msg}
