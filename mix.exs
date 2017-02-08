@@ -16,6 +16,6 @@ defmodule Jbot.Mixfile do
   end
 
   defp deps do
-    [{:slack, "~> 0.9.3"}, {:jirex, "~> 0.0.1"}]
+    [{:slack, "~> 0.9.3"}, {:jirex, "~> 0.0.3"}]
   end
 end

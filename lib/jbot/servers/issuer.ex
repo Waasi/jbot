@@ -40,6 +40,16 @@ defmodule Jbot.Issuer do
     Sends.send_message(status, message.channel, slack)
     {:noreply, state}
   end
+  def handle_cast({:execute, "set issue " <> predicate, message, slack}, state) do
+    case interpret(predicate) do
+      :ok ->
+        Sends.send_message("`It is done`", message.channel, slack)
+      _error ->
+        Sends.send_message("`Unable to move issue`", message.channel, slack)
+    end
+
+    {:noreply, state}
+  end
   def handle_cast({:execute, _text, _msg, _slack}, state), do: {:noreply, state}
 
   #####
@@ -86,5 +96,13 @@ defmodule Jbot.Issuer do
       {:error, error} ->
         {:ok, error}
     end
+  end
+
+  defp interpret(predicate) do
+    [issue, destination] =
+      predicate
+      |> String.split(" as ")
+
+    Issue.move(issue, destination)
   end
 end
