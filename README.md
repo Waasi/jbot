@@ -31,6 +31,8 @@ Messages:
 - `who has issue <insert_issue_key_here>`
 - `explain issue <insert_issue_key_here>`
 - `status of issue <insert_issue_key_here>`
+- `set issue <insert_issue_key_here> as Done`
+- `help`
 
 ## Contributing
 
